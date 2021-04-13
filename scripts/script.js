@@ -59,7 +59,6 @@ const createCard = () => {
    }, 1000)
 
    chosen.push(num);
-   console.log(num);
 }
 
 const depleted = () => {
