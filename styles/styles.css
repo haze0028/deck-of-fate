@@ -1,0 +1,264 @@
+/******************************************
+    CSSS RESET + Footer Fix
+*******************************************/
+
+/*Linked to CSS reset and a footer fix to minimize the code*/
+
+@import url("cssReset.css");
+@import url("footer.css");
+
+/********************************************
+    HEADER/FOOTER
+*********************************************/
+
+/********************************************
+    CONTENT
+*********************************************/
+
+body {
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+   sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   background-image: linear-gradient(to bottom, #00000000, #000000e5),
+   url(../images/death.jpg);
+   background-size: cover;
+   background-position: top;
+   /*   overflow: hidden;*/
+}
+
+#root {
+   width: 100%;
+   height: 100vh;
+   display: block;
+}
+
+#header,
+p {
+   color: #fff;
+}
+
+h1 {
+   font-family: "IM Fell English SC", "Kurale", "UnifrakturMaguntia", serif;
+   font-size: 120px;
+   text-align: center;
+}
+
+.container {
+   max-width: 1400px;
+}
+
+.actions {
+   display: flex;
+   flex-flow: column;
+   justify-content: space-around;
+}
+
+.actions button {
+   margin-bottom: 50px;
+   font-family: 'Metamorphous', cursive;
+   font-size: 40px;
+   font-weight: bold;
+   text-transform: capitalize;
+   font-variant: small-caps;
+}
+
+#deck {
+   height: 500px;
+   position: relative;
+}
+
+#deck .cards {
+   display: flex;
+}
+
+#deck .cards .frame {
+   height: auto;
+   width: auto;
+   max-width: 33%;
+   transition: 0.3s;
+   cursor: pointer;
+}
+
+#deck img {
+   width: 100%;
+   height: auto;
+   box-shadow: 0px 0px 20px 5px black;
+}
+
+#deck .cards .frame:nth-child(1) {
+   z-index: 1;
+   transform: translate(80%) rotate(-5deg);
+}
+
+#deck .cards .frame:nth-child(1):hover {
+   transform: translateX(60%) translateY(-10%) rotate(-15deg);
+}
+
+#deck .cards .frame:nth-child(2) {
+   z-index: 2;
+   transform: translate(0px);
+}
+
+#deck .cards .frame:nth-child(2):hover {
+   transform: translateY(-10%);
+}
+
+#deck .cards .frame:nth-child(3) {
+   z-index: 3;
+   transform: translate(-80%) rotate(5deg);
+}
+
+#deck .cards .frame:nth-child(3):hover {
+   transform: translateX(-60%) translateY(-10%) rotate(15deg);
+}
+
+.reveal {
+   position: relative;
+}
+
+.reveal #loader {
+   position: absolute;
+   top: 10%;
+   left: 30%;
+   width: 40%;
+   height: 40%;
+   display: none;
+}
+
+/************ SELECTED ***********/
+
+.selected {
+   max-width: 80%;
+   display: none;
+   margin-left: auto;
+   margin-right: auto;
+
+}
+
+.selected #card-img {
+   max-width: 100%;
+}
+
+.selected h2 {
+   text-align: center;
+   font-family: 'Kurale';
+   font-size: 40px;
+   color: white;
+}
+
+/************ SPINNER ***********/
+
+.outer {
+   margin: auto;
+   border: 16px solid rgba(0, 0, 0, 0);
+   border-top: 16px solid rgb(198, 129, 0);
+   border-bottom: 16px solid rgb(198, 129, 0);
+   border-radius: 50%;
+   border-style: double;
+   width: 150px;
+   height: 150px;
+   animation: spin 5s linear infinite;
+
+}
+
+@keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+.inner {
+   margin: auto;
+   border: 15px solid rgba(0, 0, 0, 0);
+   border-top: 15px solid rgb(0, 147, 255);
+   border-bottom: 15px solid rgb(0, 147, 255);
+   border-radius: 50%;
+   width: 120px;
+   height: 120px;
+   animation: spin2 1.5s linear infinite;
+
+}
+
+@keyframes spin2 {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(-360deg);
+   }
+}
+
+/************ ANIMATIONS ***********/
+
+.spin-1 {
+   animation: spin-clockwise 1s linear;
+}
+
+.spin-2 {
+   animation: spin-slow 1s linear;
+}
+
+.spin-3 {
+   animation: spin-counter 1s linear;
+}
+
+@keyframes spin-clockwise {
+   0% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+   }
+
+   50% {
+      transform: translateX(-20%) translateY(20%) rotate(180deg);
+   }
+
+   100% {
+      transform: translateX(0) translateY(0) rotate(360deg);
+   }
+}
+
+@keyframes spin-slow {
+   0% {
+      transform: translateY(0) rotateY(0deg);
+   }
+
+   50% {
+      transform: translateY(-10%) rotateY(90deg);
+   }
+
+   100% {
+      transform: translateY(0) rotateY(180deg);
+   }
+}
+
+@keyframes spin-counter {
+   0% {
+      transform: translateX(0) translateY(0) rotate(0deg);
+   }
+
+   50% {
+      transform: translateX(20%) translateY(20%) rotate(-180deg);
+   }
+
+   100% {
+      transform: translateX(0) translateY(0) rotate(-360deg);
+   }
+}
+
+
+/********************************************
+    Overlay
+*********************************************/
+
+/********************************************
+    Media Queries
+*********************************************/
+
+@media screen and (max-width:960px) {}
+
+@media screen and (max-width:640px) {}

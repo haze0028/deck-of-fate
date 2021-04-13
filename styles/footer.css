@@ -1,0 +1,16 @@
+html,
+body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+}
+
+#wrapper {
+   min-height: 100%;
+   position: relative;
+}
+
+#header {
+   background: transparent;
+   padding: 50px 0;
+}
