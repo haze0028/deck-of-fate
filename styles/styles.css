@@ -134,10 +134,44 @@ h1 {
    display: none;
 }
 
+/************ MODAL ***********/
+
+.modal-header {
+   background: linear-gradient(to right, #a30000, #000000);
+   border: none;
+   color: white;
+   font-weight: bold;
+   padding: 20px 30px;
+}
+
+.modal-header .close {
+   color: white;
+}
+
+.modal-body {
+   padding: 30px;
+}
+
+.modal label {
+   visibility: collapse;
+}
+
+.modal p {
+   color: black;
+}
+
+.modal .form-group:last-child {
+   margin-bottom: 0;
+}
+
+.modal-footer {
+   padding: 10px 30px;
+}
+
 /************ SELECTED ***********/
 
 .selected {
-   max-width: 80%;
+   max-width: 70%;
    display: none;
    margin-left: auto;
    margin-right: auto;
@@ -258,8 +292,22 @@ h1 {
 
 
 /********************************************
-    Overlay
+   BUTTONS
 *********************************************/
+
+.close {
+   line-height: 0.7
+}
+
+.btn-danger {
+   background-color: #a30000;
+   border-color: #a30000;
+}
+
+.btn-warning {
+   background-color: #c59400;
+   border-color: #c59400;
+}
 
 /********************************************
     Media Queries

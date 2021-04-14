@@ -10,10 +10,13 @@ const resetCard = () => {
 }
 
 const drawCard = () => {
-   resetCard();
+   var confirm = $('#confirm-input').val().trim().toLowerCase();
 
-   if (confirmDraw() === 'yes') {
-      $('#loader').fadeIn(300);
+   $('#confirm-draw-modal').modal('hide'); // hide the modal
+   resetCard(); // fades away existing card
+
+   if (confirm === 'yes') {
+      $('#loader').delay(500).fadeIn(300);
 
       setTimeout(function () {
          $('#loader').fadeOut(300);
@@ -24,14 +27,27 @@ const drawCard = () => {
    }
 }
 
-const confirmDraw = () => {
-   var confirm = prompt('ARE YOU SURE!? Type "yes" to draw...')
-   if (confirm) {
-      return confirm.trim().toLowerCase();
-   }
-}
+$('#confirm-draw').submit(function (e) {
+   e.preventDefault();
+   drawCard();
+   $('#confirm-input').val('');
+});
 
-$('.deck-card').on('click', drawCard);
+$('#form-submit-btn').click(function (e) {
+   e.preventDefault();
+   drawCard();
+   $('#confirm-input').val('');
+});
+
+$('#draw-btn').on('click', function () {
+   $('#confirm-draw-modal').modal('show')
+   $('#confirm-input').delay(1000).focus();
+})
+
+$('.deck-card').on('click', function () {
+   $('#confirm-draw-modal').modal('show');
+   $('#confirm-input').delay(1000).focus();
+});
 
 const roll = () => {
    number = Math.floor(Math.random() * 22);
@@ -67,6 +83,12 @@ const depleted = () => {
    setTimeout(function () {
       $('.selected').fadeIn(400)
    }, 1000)
+}
+
+
+////////////////////// RESET DECK
+const resetDeck = () => {
+   chosen = [];
 }
 
 
