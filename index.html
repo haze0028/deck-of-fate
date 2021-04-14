@@ -46,6 +46,8 @@
                      </div>
                   </div>
                </div>
+
+
                <div class='col-md-2'>
                   <div class="actions">
                      <button id="draw-btn" variant="outlined" color="primary" type="button" class="btn btn-primary btn-draw" title="Draw a card" data-target="#confirm-draw-modal">
@@ -54,7 +56,7 @@
                      <button id="shuffle-btn" variant="outlined" color="secondary" type="button" class="btn btn-warning btn-shuffle" onclick="shuffleDeck()" title="Shuffle the deck">
               Shuffle
             </button>
-                     <button id="shuffle-btn" type="button" class="btn btn-dark" onclick="resetDeck()" title="Reset the deck back to full">Reset</button>
+                     <button id="reset-btn" type="button" class="btn btn-dark" title="Reset the deck back to full">Reset</button>
                   </div>
                </div>
                <div class='col-md-5 reveal'>
@@ -69,7 +71,8 @@
                   </div>
                </div>
 
-               <!-- Modal -->
+
+               <!-- DRAW MODAL -->
                <div class="modal fade" id="confirm-draw-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-draw-title" aria-hidden="true" data-keyboard='true'>
                   <div class="modal-dialog modal-dialog-centered" role="document">
                      <div class="modal-content">
@@ -95,6 +98,30 @@
                      </div>
                   </div>
                </div>
+
+               <!-- RESET MODAL -->
+               <div class="modal fade" id="reset-modal" tabindex="-1" role="dialog" aria-labelledby="reset-modal-label" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h5 class="modal-title" id="reset-modal-label">Are you sure?</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                        </div>
+                        <div class="modal-body">
+                           <p>This will reset the deck back to full</p>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                           <button type="button" class="btn btn-primary" id="modal-reset-btn">Reset</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Snackbar -->
+               <div id="snackbar">Deck has been reset</div>
             </div>
          </div>
       </div>

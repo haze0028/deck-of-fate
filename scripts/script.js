@@ -1,7 +1,7 @@
-////////////////////// DRAW
 let drawn = false
 let chosen = [];
 let number;
+
 
 const resetCard = () => {
    if (drawn) {
@@ -9,6 +9,7 @@ const resetCard = () => {
    }
 }
 
+////////////////////// DRAW
 const drawCard = () => {
    var confirm = $('#confirm-input').val().trim().toLowerCase();
 
@@ -27,6 +28,62 @@ const drawCard = () => {
    }
 }
 
+////////////////////// ROLL
+const roll = () => {
+   number = Math.floor(Math.random() * 22);
+
+   if (!chosen.includes(number)) {
+      createCard();
+   } else if (chosen.length === 22) {
+      depleted();
+   } else {
+      roll();
+   }
+}
+
+////////////////////// CREATE CARD
+const createCard = () => {
+   const num = number;
+   const str1 = "images/deck/"
+   const img = cardDetails[num].image.substring(cardDetails[num].image.lastIndexOf('/') + 1);
+   const title = cardDetails[num].title;
+
+   $('#card-img').attr('src', str1.concat(img)).attr('alt', title);
+   $('#card-title').text(title);
+
+   setTimeout(function () {
+      $('.selected').fadeIn(3000) // length of time for card to fade in 
+   }, 1000)
+
+   chosen.push(num);
+}
+
+////////////////////// DECK DEPLETED
+const depleted = () => {
+   $('#card-title').text('Deck depleted');
+
+   setTimeout(function () {
+      $('.selected').fadeIn(400)
+   }, 1000)
+}
+
+////////////////////// SHUFFLE
+const shuffleDeck = () => {
+   let num;
+   $('#deck img').each(function (index) {
+      num = index + 1
+      $('#card' + num).addClass('spin-' + num)
+   })
+   setTimeout(function () {
+      $('#deck img').each(function (index) {
+         num = index + 1
+         $('#card' + num).removeClass('spin-' + num);
+      })
+   }, 1000)
+}
+
+
+////////////////////// TRIGGERS
 $('#confirm-draw').submit(function (e) {
    e.preventDefault();
    drawCard();
@@ -49,61 +106,16 @@ $('.deck-card').on('click', function () {
    $('#confirm-input').delay(1000).focus();
 });
 
-const roll = () => {
-   number = Math.floor(Math.random() * 22);
+$('#reset-btn').on('click', function () {
+   $('#reset-modal').modal('show');
+})
 
-   if (!chosen.includes(number)) {
-      createCard();
-   } else if (chosen.length === 22) {
-      depleted();
-   } else {
-      roll();
-   }
-}
-
-const createCard = () => {
-   const num = number;
-   const str1 = "images/deck/"
-   const img = cardDetails[num].image.substring(cardDetails[num].image.lastIndexOf('/') + 1);
-   const title = cardDetails[num].title;
-
-   $('#card-img').attr('src', str1.concat(img)).attr('alt', title);
-   $('#card-title').text(title);
-
-   setTimeout(function () {
-      $('.selected').fadeIn(3000) // length of time for card to fade in 
-   }, 1000)
-
-   chosen.push(num);
-}
-
-const depleted = () => {
-   $('#card-title').text('Deck depleted');
-
-   setTimeout(function () {
-      $('.selected').fadeIn(400)
-   }, 1000)
-}
-
-
-////////////////////// RESET DECK
-const resetDeck = () => {
+$('#modal-reset-btn').on('click', function () {
    chosen = [];
-}
-
-
-////////////////////// SHUFFLE
-const shuffleDeck = () => {
-   let num;
-   $('#deck img').each(function (index) {
-      num = index + 1
-      $('#card' + num).addClass('spin-' + num)
-   })
+   $('#reset-modal').modal('hide');
+   $('#snackbar').addClass('show');
+   // After 3 seconds, remove the show class from DIV
    setTimeout(function () {
-      $('#deck img').each(function (index) {
-         num = index + 1
-         $('#card' + num).removeClass('spin-' + num);
-      })
-   }, 1000)
-
-}
+      $('#snackbar').removeClass('show');
+   }, 4000);
+})
