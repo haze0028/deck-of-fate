@@ -3,9 +3,10 @@ $(document).ready(function () {
    let chosen = [];
    let number;
 
+   // fade in contents when page is loaded
+   $('#wrapper').delay(1000).fadeIn(2000);
 
-   $('#wrapper').fadeIn(); // fade in contents when page is loaded
-
+   // vanishes the selected card if one exists
    const resetCard = () => {
       if (drawn) {
          $('.selected').fadeOut();
@@ -53,7 +54,6 @@ $(document).ready(function () {
       const source = str1.concat(title.toLocaleLowerCase() + '.png');
 
       $('#card-img').attr('src', source).attr('alt', title);
-      $('#card-title').text(title);
 
       setTimeout(function () {
          $('.selected').fadeIn(3000) // length of time for card to fade in 
@@ -65,7 +65,7 @@ $(document).ready(function () {
                               <img src='${source}' alt='${title}'>
                            </div>`
       )
-      $('#expended #exp-cards .frame:last-child').fadeIn(6000);
+      $('#expended #exp-cards .frame:last-child').delay(1000).fadeIn(6000);
    }
 
 
@@ -125,8 +125,10 @@ $(document).ready(function () {
    $('#modal-reset-btn').on('click', function () {
       chosen = [];
       $('#reset-modal').modal('hide');
+      resetCard();
+      $('#expended #exp-cards .frame').fadeOut();
       $('#snackbar').addClass('show');
-      // After 3 seconds, remove the show class from DIV
+      // After 4 seconds, remove the show class from snackbar
       setTimeout(function () {
          $('#snackbar').removeClass('show');
       }, 4000);
