@@ -47,7 +47,7 @@ $(document).ready(function () {
       const str1 = "images/deck/"
       const img = cardDetails[num].image.substring(cardDetails[num].image.lastIndexOf('/') + 1);
       const title = cardDetails[num].title;
-      const source = str1.concat(title + '.png');
+      const source = str1.concat(title.toLocaleLowerCase() + '.png');
 
       $('#card-img').attr('src', source).attr('alt', title);
       $('#card-title').text(title);
