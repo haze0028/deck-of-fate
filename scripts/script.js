@@ -3,6 +3,9 @@ $(document).ready(function () {
    let chosen = [];
    let number;
 
+
+   $('#wrapper').fadeIn(); // fade in contents when page is loaded
+
    const resetCard = () => {
       if (drawn) {
          $('.selected').fadeOut();
