@@ -53,7 +53,7 @@
                      <button id="draw-btn" variant="outlined" color="primary" type="button" class="btn btn-danger btn-draw" title="Draw a card" data-target="#confirm-draw-modal">
               Draw
             </button>
-                     <button id="shuffle-btn" variant="outlined" color="secondary" type="button" class="btn btn-secondary btn-shuffle" onclick="shuffleDeck()" title="Shuffle the deck">
+                     <button id="shuffle-btn" variant="outlined" color="secondary" type="button" class="btn btn-secondary btn-shuffle" title="Shuffle the deck">
               Shuffle
             </button>
                      <button id="reset-btn" type="button" class="btn btn-dark" title="Reset the deck back to full">Reset</button>
@@ -119,10 +119,18 @@
                      </div>
                   </div>
                </div>
-
-               <!-- Snackbar -->
-               <div id="snackbar">Deck has been reset</div>
             </div>
+
+            <!--EXPENDED-->
+            <div class="" id="expended">
+               <div class="col-12" id="exp-title">
+                  <hr>
+                  <h2>Expended</h2>
+               </div>
+               <div id="exp-cards" class="row justify-content-center"></div>
+            </div>
+            <!-- Snackbar -->
+            <div id="snackbar">Deck has been reset</div>
          </div>
       </div>
    </div>
