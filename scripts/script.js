@@ -67,12 +67,12 @@ $(document).ready(function () {
       }, 1000)
 
       chosen.push(num);
-      $('#expended #exp-cards').append(
+      $('#expended #exp-cards').prepend(
          `<div class='frame'>
                               <img src='${source}' alt='${title}'>
                            </div>`
       )
-      $('#expended #exp-cards .frame:last-child').delay(1000).fadeIn(6000);
+      $('#expended #exp-cards .frame:first-child').delay(1000).fadeIn(6000);
    }
 
 
@@ -102,7 +102,29 @@ $(document).ready(function () {
    }
 
 
-   ////////////////////// CARD SELECTOR
+   ////////////////////// DECK BUILDER
+   const validateChecked = () => {
+      let valid = false;
+      $('.card-checkbox input').each(function () {
+         if ($(this).is(':checked')) {
+            valid = true;
+            return false;
+         }
+      })
+      return valid;
+   }
+
+   const boxChecked = () => {
+      if (validateChecked()) {
+         $('#build-confirm-btn').attr('disabled', false)
+         $('#builder-danger').css('display', 'none')
+      } else {
+         $('#build-confirm-btn').attr('disabled', true)
+         $('#builder-danger').css('display', 'block')
+      }
+   }
+
+
    $('#basic13-btn').on('click', function () {
       $('.card-checkbox input').each(function (index, element) {
          $(this).prop('checked', false);
@@ -111,6 +133,7 @@ $(document).ready(function () {
          (function (ind) {
             setTimeout(function () {
                $('#card' + ind + '-chk').prop('checked', true);
+               boxChecked();
             }, 30 * ind);
          })(i);
       }
@@ -121,6 +144,7 @@ $(document).ready(function () {
          (function (ind) {
             setTimeout(function () {
                $('#card' + ind + '-chk').prop('checked', true);
+               boxChecked();
             }, 30 * ind);
          })(i);
       }
@@ -131,10 +155,13 @@ $(document).ready(function () {
          (function (ind) {
             setTimeout(function () {
                $('#card' + ind + '-chk').prop('checked', false);
+               boxChecked();
             }, 30 * ind);
          })(i);
       }
    })
+
+   $('.card-checkbox input').change(boxChecked);
 
    $('#build-confirm-btn').on('click', function () {
       list = cardDetails;
@@ -174,6 +201,7 @@ $(document).ready(function () {
    }
 
 
+
    ////////////////////// TRIGGERS
    $('#confirm-draw').submit(function (e) {
       e.preventDefault();
@@ -208,7 +236,6 @@ $(document).ready(function () {
    $('#shuffle-btn').on('click', shuffleDeck);
 
    $('#exp-drawer-btn').on('click', function () {
-      console.log('clicked');
       $('#expended').toggleClass('shift');
       $('#expended .fa-chevron-up').toggleClass('spin');
    })

@@ -224,7 +224,14 @@
                         </div>
                      </div>
                   </div>
-                  <p>This will reset all expended cards and shuffle the deck.</p>
+                  <div class="alert alert-warning" role="alert" id="builder-warning">
+                     <i class="fa fa-exclamation-triangle"></i>
+                     This will reset all expended cards and shuffle the deck.
+                  </div>
+                  <div class="alert alert-danger" role="alert" id="builder-danger">
+                     <i class="fa fa-exclamation-triangle"></i>
+                     You must have at least one card selected to build the deck.
+                  </div>
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
@@ -264,7 +271,7 @@
                Expended cards
                <i class="fa fa-chevron-up"></i>
             </h3>
-            <div id="exp-cards" class="justify-content-center"></div>
+            <div id="exp-cards"></div>
          </div>
       </div>
 
