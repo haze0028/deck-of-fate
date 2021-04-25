@@ -30,6 +30,8 @@
 
       <div id="content">
          <div class='container'>
+
+            <!-- ANIMATED DECK -->
             <div class='row'>
                <div class='col-md-5'>
                   <div id="deck">
@@ -48,17 +50,23 @@
                </div>
 
 
+               <!-- DECK ACTIONS -->
                <div class='col-md-2'>
                   <div class="actions">
                      <button id="draw-btn" variant="outlined" color="primary" type="button" class="btn btn-danger btn-draw" title="Draw a card" data-target="#confirm-draw-modal">
-              Draw
-            </button>
+                        Draw
+                     </button>
+                     <button id="build-btn" variant="outlined" color="primary" type="button" class="btn btn-warning btn-draw" title="Customize the deck" data-target="#build-deck-modal">
+                        Deck builder
+                     </button>
                      <button id="shuffle-btn" variant="outlined" color="secondary" type="button" class="btn btn-secondary btn-shuffle" title="Shuffle the deck">
-              Shuffle
-            </button>
+                        Shuffle
+                     </button>
                      <button id="reset-btn" type="button" class="btn btn-dark" title="Reset the deck back to full">Reset</button>
                   </div>
                </div>
+
+               <!-- REVEALED CARD -->
                <div class='col-md-5 reveal'>
                   <div id="loader">
                      <div class="outer">
@@ -70,69 +78,193 @@
                      <h2 id="card-title"></h2>
                   </div>
                </div>
-
-
-               <!-- DRAW MODAL -->
-               <div class="modal fade" id="confirm-draw-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-draw-title" aria-hidden="true" data-keyboard='true'>
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                     <div class="modal-content">
-                        <div class="modal-header">
-                           <h5 class="modal-title" id="confirm-draw-title">ARE YOU SURE?</h5>
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                        </div>
-                        <div class="modal-body">
-                           <p>You can't undo this action. Type "yes" to continue...</p>
-                           <form id="confirm-draw">
-                              <div class="form-group">
-                                 <label for="confirm-input">Confirm</label>
-                                 <input type="text" class="form-control" id="confirm-input" aria-describedby="confirm-input" placeholder="Have it your away..." autocomplete="false">
-                              </div>
-                           </form>
-                        </div>
-                        <div class="modal-footer">
-                           <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                           <button type="button" class="btn btn-danger" form="confirm-draw" id="form-submit-btn">Draw</button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-               <!-- RESET MODAL -->
-               <div class="modal fade" id="reset-modal" tabindex="-1" role="dialog" aria-labelledby="reset-modal-label" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                     <div class="modal-content">
-                        <div class="modal-header">
-                           <h5 class="modal-title" id="reset-modal-label">Are you sure?</h5>
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-                        </div>
-                        <div class="modal-body">
-                           <p>This will reset the deck back to full</p>
-                        </div>
-                        <div class="modal-footer">
-                           <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                           <button type="button" class="btn btn-dark" id="modal-reset-btn">Reset</button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
 
-            <!--EXPENDED-->
-            <div class="" id="expended">
-               <div class="col-12" id="exp-title">
-                  <hr>
-                  <h2>Expended</h2>
-               </div>
-               <div id="exp-cards" class="row justify-content-center"></div>
-            </div>
             <!-- Snackbar -->
             <div id="snackbar">Deck has been reset</div>
          </div>
       </div>
+
+      <!-- DRAW MODAL -->
+      <div class="modal fade" id="confirm-draw-modal" tabindex="-1" role="dialog" aria-labelledby="confirm-draw-title" aria-hidden="true" data-keyboard='true'>
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3 class="modal-title h5" id="confirm-draw-title">Are you sure?</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <p>You can't undo this action. Type "yes" to continue...</p>
+                  <form id="confirm-draw">
+                     <div class="form-group">
+                        <label for="confirm-input" class="label-inv">Confirm</label>
+                        <input type="text" class="form-control" id="confirm-input" aria-describedby="confirm-input" placeholder="Have it your way..." autocomplete="false">
+                     </div>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-danger" form="confirm-draw" id="form-submit-btn">Draw</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- DECK BUILDER MODAL -->
+      <div class="modal fade" id="build-deck-modal" tabindex="-1" role="dialog" aria-labelledby="build-modal-label" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3 class="modal-title h5" id="build-modal-label">Customize your deck</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <div class="modal-actions">
+                     <button type="button" class="btn btn-success" id="basic13-btn">Basic 13</button>
+                     <button type="button" class="btn btn-primary" id="selectall-btn">Select all</button>
+                     <button type="button" class="btn btn-secondary" id="deselectall-btn">Deselect all</button>
+                  </div>
+                  <h4>Individual cards</h4>
+                  <div class="row card-checkboxes">
+                     <div class="col-6">
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card1-chk" value="1 - Balance" checked>
+                           <label class="form-check-label" for="card1-chk">1 - Balance</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card2-chk" value="2 - Comet" checked>
+                           <label class="form-check-label" for="card2-chk">2 - Comet</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card3-chk" value="3 - Donjon" checked>
+                           <label class="form-check-label" for="card3-chk">3 - Donjon</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card4-chk" value="4 - Euryale" checked>
+                           <label class="form-check-label" for="card4-chk">4 - Euryale</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card5-chk" value="5 - Fates" checked>
+                           <label class="form-check-label" for="card5-chk">5 - Fates</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card6-chk" value="6 - Flames" checked>
+                           <label class="form-check-label" for="card6-chk">6 - Flames</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card7-chk" value="7 - Fool" checked>
+                           <label class="form-check-label" for="card7-chk">7 - Fool</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card8-chk" value="8 - Gem" checked>
+                           <label class="form-check-label" for="card8-chk">8 - Gem</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card9-chk" value="9 - Idiot" checked>
+                           <label class="form-check-label" for="card9-chk">9 - Idiot</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card10-chk" value="10 - Jester" checked>
+                           <label class="form-check-label" for="card10-chk">10 - Jester</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card11-chk" value="11 - Key" checked>
+                           <label class="form-check-label" for="card11-chk">11 - Key</label>
+                        </div>
+                     </div>
+
+                     <div class="col-6">
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card12-chk" value="12 - Knight" checked>
+                           <label class="form-check-label" for="card12-chk">12 - Knight</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card13-chk" value="13 - Moon" checked>
+                           <label class="form-check-label" for="card13-chk">13 - Moon</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card14-chk" value="14 - Rogue" checked>
+                           <label class="form-check-label" for="card14-chk">14 - Rogue</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card15-chk" value="15 - Ruin" checked>
+                           <label class="form-check-label" for="card15-chk">15 - Ruin</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card16-chk" value="16 - Skull" checked>
+                           <label class="form-check-label" for="card16-chk">16 - Skull</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card17-chk" value="17 - Star" checked>
+                           <label class="form-check-label" for="card17-chk">17 - Star</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card18-chk" value="18 - Sun" checked>
+                           <label class="form-check-label" for="card18-chk">18 - Sun</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card19-chk" value="19 - Talons" checked>
+                           <label class="form-check-label" for="card19-chk">19 - Talons</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card20-chk" value="20 - Throne" checked>
+                           <label class="form-check-label" for="card20-chk">20 - Throne</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card21-chk" value="21 - Vizier" checked>
+                           <label class="form-check-label" for="card21-chk">21 - Vizier</label>
+                        </div>
+                        <div class="form-check card-checkbox">
+                           <input class="form-check-input" type="checkbox" id="card22-chk" value="22 - Void" checked>
+                           <label class="form-check-label" for="card22-chk">22 - Void</label>
+                        </div>
+                     </div>
+                  </div>
+                  <p>This will reset all expended cards and shuffle the deck.</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" id="build-confirm-btn">Build</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- RESET MODAL -->
+      <div class="modal fade" id="reset-modal" tabindex="-1" role="dialog" aria-labelledby="reset-modal-label" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3 class="modal-title h5" id="reset-modal-label">Are you sure?</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <p>This will reset the deck back to full. If you have customized the deck, it will follow those specifications.</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-dark" id="modal-reset-btn">Reset</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--EXPENDED DRAWER-->
+      <!--
+      <button class="btn btn-success">Expended cards</button>
+      <div class="" id="expended">
+         <div class="col-12" id="exp-title">
+            <h3 class="h4">Expended</h3>
+         </div>
+         <div id="exp-cards" class="row justify-content-center"></div>
+      </div>
+-->
    </div>
    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -141,6 +273,4 @@
 
    <script src="data/data.js"></script>
    <script src="scripts/script.js"></script>
-</body>
-
-</html>
+</body></html>

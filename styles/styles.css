@@ -14,17 +14,53 @@
 #header,
 p {
    color: #fff;
+   line-height: 1.5;
+   font-size: 18px;
 }
 
 hr {
    border-color: grey;
 }
 
-h1 {
+h1,
+.h1 {
    font-family: "IM Fell English SC", "Kurale", "UnifrakturMaguntia", serif;
    font-size: 120px;
    text-align: center;
    padding: 50px 0;
+}
+
+h2,
+h3,
+h4,
+.h2,
+.h3,
+.h4 {
+   font-family: 'Kurale';
+   color: white;
+   padding: 16px 0 20px;
+}
+
+h2,
+.h2 {
+   font-size: 40px;
+   text-align: center;
+}
+
+h3,
+.h3 {
+   font-size: 36px;
+}
+
+h4,
+.h4 {
+   font-size: 24px;
+   font-family: arial;
+}
+
+h5,
+.h5 {
+   font-size: 22px;
 }
 
 /********************************************
@@ -34,12 +70,12 @@ h1 {
 body {
    margin: 0;
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-   sans-serif;
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    background-image: linear-gradient(to bottom, #00000000, #000000e5),
-   url(../images/death.jpg);
+      url(../images/death.jpg);
    background-size: cover;
    background-position: top;
    background-repeat: no-repeat;
@@ -74,7 +110,7 @@ body {
 .actions button {
    margin-bottom: 50px;
    font-family: 'Metamorphous', cursive;
-   font-size: 38px;
+   font-size: 34px;
    font-weight: bold;
    text-transform: capitalize;
    font-variant: small-caps;
@@ -152,9 +188,50 @@ body {
    display: none;
 }
 
+.label-inv {
+   visibility: collapse;
+}
+
+.modal-title {
+   padding: 0;
+}
+
 
 /********************************************
-   MODAL
+   DECK BUILDER MODAL
+*********************************************/
+
+#build-deck-modal .modal-header {
+   background: #c59400;
+   border: none;
+}
+
+.modal-actions {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+}
+
+#build-deck-modal h4 {
+   color: black;
+}
+
+.card-checkbox {
+   margin-bottom: 10px;
+}
+
+.card-checkbox input {
+   width: 18px;
+   height: 18px;
+   margin-top: 0;
+}
+
+.card-checkbox .form-check-label {
+   margin-left: 8px;
+}
+
+/********************************************
+   DRAW MODAL
 *********************************************/
 
 #confirm-draw-modal .modal-header {
@@ -174,16 +251,16 @@ body {
    padding: 20px 30px;
 }
 
-#confirm-draw-modal .modal-header .close,
-#reset-modal .modal-header .close {
+.modal-header .close {
    color: white;
+   margin-top: -10px;
 }
 
 .modal-body {
    padding: 30px;
 }
 
-.modal label {
+#confirm-draw-modal .modal label {
    visibility: collapse;
 }
 
@@ -215,13 +292,6 @@ body {
    max-width: 100%;
 }
 
-.selected h2 {
-   text-align: center;
-   font-family: 'Kurale';
-   font-size: 40px;
-   color: white;
-}
-
 /********************************************
    SPINNER
 *********************************************/
@@ -243,6 +313,7 @@ body {
    0% {
       transform: rotate(0deg);
    }
+
    100% {
       transform: rotate(360deg);
    }
@@ -264,6 +335,7 @@ body {
    0% {
       transform: rotate(0deg);
    }
+
    100% {
       transform: rotate(-360deg);
    }
@@ -383,21 +455,21 @@ body {
 /********************************************
    EXPENDED
 *********************************************/
+#expended {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   background: black;
+   box-sizing: border-box;
+   height: 200px;
 
-#expended h2 {
+}
+
+#expended .h4 {
    font-family: "IM Fell English SC", "Kurale", "UnifrakturMaguntia", serif;
-   font-size: 40px;
    text-align: center;
    padding: 10px 0;
    color: white;
-}
-
-#expended {
-   padding-bottom: 50px;
-}
-
-#expended .frame img {
-   width: 100%;
 }
 
 #exp-cards {
@@ -408,6 +480,10 @@ body {
 
 #exp-cards .frame {
    display: none;
+}
+
+#expended .frame img {
+   width: 100%;
 }
 
 /********************************************
@@ -462,6 +538,7 @@ body {
       bottom: 0;
       opacity: 0;
    }
+
    to {
       bottom: 30px;
       opacity: 1;
@@ -473,6 +550,7 @@ body {
       bottom: 0;
       opacity: 0;
    }
+
    to {
       bottom: 30px;
       opacity: 1;
@@ -484,6 +562,7 @@ body {
       bottom: 30px;
       opacity: 1;
    }
+
    to {
       bottom: 0;
       opacity: 0;
@@ -495,6 +574,7 @@ body {
       bottom: 30px;
       opacity: 1;
    }
+
    to {
       bottom: 0;
       opacity: 0;
@@ -522,6 +602,7 @@ body {
       font-size: 80px;
       padding: 30px 0;
    }
+
    .actions button {
       font-size: 40px
    }
