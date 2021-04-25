@@ -455,35 +455,68 @@ body {
 /********************************************
    EXPENDED
 *********************************************/
+
 #expended {
    position: fixed;
-   bottom: 0;
+   bottom: -220px;
    width: 100%;
-   background: black;
+   background: #0d0d0d;
    box-sizing: border-box;
-   height: 200px;
-
+   height: 270px;
+   transition: .5s;
+   clip-path: polygon(0% 14%, calc(100% - 250px) 14%, calc(100% - 200px) 0%, 100% 0%, 100% 100%, 0% 100%);
+   z-index: 100;
 }
 
-#expended .h4 {
-   font-family: "IM Fell English SC", "Kurale", "UnifrakturMaguntia", serif;
-   text-align: center;
-   padding: 10px 0;
-   color: white;
+#expended.shift {
+   bottom: 0;
+}
+
+#exp-container {
+   position: relative;
+}
+
+#exp-drawer-btn {
+   position: absolute;
+   right: 10px;
+   top: 5px;
+   color: #00b400;
+   padding: 5px;
+   font-family: 'Metamorphous', cursive;
+   font-size: 20px;
+   font-weight: bold;
+   text-transform: capitalize;
+   font-variant: small-caps;
+   cursor: pointer;
+   transition: .5s;
+}
+
+#exp-drawer-btn:hover {
+   color: #00ff00;
+}
+
+#exp-drawer-btn .fa-chevron-up {
+   transition: .5s;
+}
+
+#exp-drawer-btn .fa-chevron-up.spin {
+   transform: rotateZ(180deg);
 }
 
 #exp-cards {
    display: flex;
    flex-direction: row-reverse;
-   flex-wrap: wrap;
+   overflow-x: auto;
 }
 
 #exp-cards .frame {
    display: none;
+   height: 200px;
+   margin: 55px 4px 0px;
 }
 
-#expended .frame img {
-   width: 100%;
+#exp-cards .frame img {
+   height: 100%;
 }
 
 /********************************************

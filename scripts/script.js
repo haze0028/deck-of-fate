@@ -68,7 +68,7 @@ $(document).ready(function () {
 
       chosen.push(num);
       $('#expended #exp-cards').append(
-         `<div class='frame col-md-2 col-6'>
+         `<div class='frame'>
                               <img src='${source}' alt='${title}'>
                            </div>`
       )
@@ -207,7 +207,11 @@ $(document).ready(function () {
 
    $('#shuffle-btn').on('click', shuffleDeck);
 
-
+   $('#exp-drawer-btn').on('click', function () {
+      console.log('clicked');
+      $('#expended').toggleClass('shift');
+      $('#expended .fa-chevron-up').toggleClass('spin');
+   })
 
 
 })
