@@ -72,7 +72,8 @@ $(document).ready(function () {
                               <img src='${source}' alt='${title}'>
                            </div>`
       )
-      $('#expended #exp-cards .frame:first-child').delay(1000).fadeIn(6000);
+      $('#expended #exp-cards .frame:first-child').delay(1000).fadeIn(5000);
+      showExpended();
    }
 
 
@@ -181,7 +182,10 @@ $(document).ready(function () {
 
       $('#build-deck-modal').modal('hide');
       hideCard();
-      $('#expended #exp-cards .frame').fadeOut();
+      $('#exp-cards .frame').fadeOut();
+      $('#exp-cards').empty();
+      chosen = [];
+      showExpended();
    })
 
 
@@ -193,6 +197,7 @@ $(document).ready(function () {
       hideCard();
       $('#expended #exp-cards .frame').remove();
       $('#card-title').text('');
+      showExpended();
       $('#snackbar').addClass('show');
       // After 4 seconds, vanish the snackbar
       setTimeout(function () {
@@ -200,6 +205,16 @@ $(document).ready(function () {
       }, 4000);
    }
 
+
+   ////////////////////// EXPENDED
+   const showExpended = () => {
+      if (chosen.length > 0) {
+         $('#expended').fadeIn();
+      } else {
+         $('#expended').fadeOut().removeClass('shift');
+
+      }
+   }
 
 
    ////////////////////// TRIGGERS
@@ -237,7 +252,6 @@ $(document).ready(function () {
 
    $('#exp-drawer-btn').on('click', function () {
       $('#expended').toggleClass('shift');
-      $('#expended .fa-chevron-up').toggleClass('spin');
    })
 
 
