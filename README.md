@@ -1,4 +1,4 @@
-<h1>Deck of Many Things - picker</h1>
+<h1>Deck of Many Things - card picker</h1>
 
 <h2>Instructions</h2>
 
