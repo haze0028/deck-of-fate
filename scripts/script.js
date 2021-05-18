@@ -231,7 +231,7 @@ $(document).ready(function () {
       $('#confirm-input').val('');
    });
 
-   $('#draw-btn').on('click', function () {
+   $('.draw-btn').on('click', function () {
       $('#confirm-draw-modal').modal('show')
    })
 
@@ -239,17 +239,17 @@ $(document).ready(function () {
       $('#confirm-draw-modal').modal('show');
    });
 
-   $('#build-btn').on('click', function () {
+   $('.build-btn').on('click', function () {
       $('#build-deck-modal').modal('show');
    });
 
-   $('#reset-btn').on('click', function () {
+   $('.reset-btn').on('click', function () {
       $('#reset-modal').modal('show');
    })
 
    $('#modal-reset-btn').on('click', confirmReset);
 
-   $('#shuffle-btn').on('click', shuffleDeck);
+   $('.shuffle-btn').on('click', shuffleDeck);
 
    $('#exp-drawer-btn').on('click', function () {
       $('#expended').toggleClass('shift');

@@ -33,18 +33,16 @@
 
             <!-- ANIMATED DECK -->
             <div class='row'>
-               <div class='col-md-5'>
-                  <div id="deck">
-                     <div class="cards">
-                        <div class="frame">
-                           <img src='images/card-back.png' alt="Card 1" id="card1" class="deck-card" />
-                        </div>
-                        <div class="frame">
-                           <img src='images/card-back.png' alt="Card 1" id="card2" class="deck-card" />
-                        </div>
-                        <div class="frame">
-                           <img src='images/card-back.png' alt="Card 1" id="card3" class="deck-card" />
-                        </div>
+               <div class='col-md-5' id="deck">
+                  <div class="cards">
+                     <div class="frame">
+                        <img src='images/card-back.png' alt="Card 1" id="card1" class="deck-card" />
+                     </div>
+                     <div class="frame">
+                        <img src='images/card-back.png' alt="Card 1" id="card2" class="deck-card" />
+                     </div>
+                     <div class="frame">
+                        <img src='images/card-back.png' alt="Card 1" id="card3" class="deck-card" />
                      </div>
                   </div>
                </div>
@@ -52,17 +50,26 @@
 
                <!-- DECK ACTIONS -->
                <div class='col-md-2'>
-                  <div class="actions">
-                     <button id="draw-btn" variant="outlined" color="primary" type="button" class="btn btn-danger btn-draw" title="Draw a card" data-target="#confirm-draw-modal">
+                  <div class="actions actions-lg">
+                     <button variant="outlined" color="primary" type="button" class="btn btn-danger btn-draw draw-btn" title="Draw a card" data-target="#confirm-draw-modal">
                         Draw
                      </button>
-                     <button id="build-btn" variant="outlined" color="primary" type="button" class="btn btn-warning btn-draw" title="Customize the deck" data-target="#build-deck-modal">
+                     <button variant="outlined" color="primary" type="button" class="btn btn-warning build-btn" title="Customize the deck" data-target="#build-deck-modal">
                         Deck builder
                      </button>
-                     <button id="shuffle-btn" variant="outlined" color="secondary" type="button" class="btn btn-secondary btn-shuffle" title="Shuffle the deck">
+                     <button variant="outlined" color="secondary" type="button" class="btn btn-secondary shuffle-btn" title="Shuffle the deck">
                         Shuffle
                      </button>
-                     <button id="reset-btn" type="button" class="btn btn-dark" title="Reset the deck back to full">Reset</button>
+                     <button type="button" class="btn btn-dark reset-btn" title="Reset the deck back to full">Reset</button>
+                  </div>
+                  <div class="actions actions-sm">
+                     <button variant="outlined" color="primary" type="button" class="btn btn-danger draw-btn" title="Draw a card" data-target="#confirm-draw-modal">
+                        Draw
+                     </button>
+                     <button variant="outlined" color="primary" type="button" class="btn btn-warning  build-btn" title="Customize the deck" data-target="#build-deck-modal">
+                        Deck builder
+                     </button>
+                     <button id="reset-btn" type="button" class="btn btn-dark reset-btn" title="Reset the deck back to full">Reset</button>
                   </div>
                </div>
 
@@ -305,6 +312,4 @@
 
    <script src="data/data.js"></script>
    <script src="scripts/script.js"></script>
-</body>
-
-</html>
+</body></html>

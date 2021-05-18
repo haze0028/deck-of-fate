@@ -111,21 +111,6 @@ body {
    margin-bottom: 20px;
 }
 
-.actions {
-   display: flex;
-   flex-flow: column;
-   justify-content: space-around;
-}
-
-.actions button {
-   margin-bottom: 50px;
-   font-family: 'Metamorphous', cursive;
-   font-size: 34px;
-   font-weight: bold;
-   text-transform: capitalize;
-   font-variant: small-caps;
-}
-
 .modal-title {
    padding: 0;
 }
@@ -525,6 +510,34 @@ body {
 /********************************************
    BUTTONS
 *********************************************/
+.actions button {
+   font-family: 'Metamorphous', cursive;
+   font-weight: bold;
+   text-transform: capitalize;
+   font-variant: small-caps;
+}
+
+.actions-lg {
+   display: flex;
+   flex-flow: column;
+   justify-content: space-around;
+}
+
+.actions-lg button {
+   margin-bottom: 50px;
+   font-size: 34px;
+}
+
+.actions-sm {
+   display: none;
+   justify-content: space-around
+}
+
+.actions-sm button {
+   width: auto;
+   margin: auto 10px;
+   font-size: 20px;
+}
 
 .close {
    line-height: 0.7
@@ -712,14 +725,14 @@ body {
       font-size: 70px;
    }
 
-   .actions button {
+   .actions-lg button {
       font-size: 28px;
       margin-bottom: 40px;
    }
 }
 
 @media screen and (max-width:960px) {
-   .actions button {
+   .actions-lg button {
       width: 120%;
       font-size: 24px;
       margin-bottom: 30px;
@@ -727,7 +740,19 @@ body {
 }
 
 @media screen and (max-width:768px) {
-   .actions button {
+   #deck {
+      display: none;
+   }
+
+   .actions.actions-sm {
+      display: flex;
+   }
+
+   .actions {
+      display: none;
+   }
+
+   .actions-lg button {
       width: 80%;
       font-size: 30px;
       margin: 0 auto 30px;
@@ -747,6 +772,4 @@ body {
       font-size: 45px;
       padding: 30px 0;
    }
-
-   .actions button {}
 }
