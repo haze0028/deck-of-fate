@@ -27,7 +27,7 @@ h1,
    font-family: "IM Fell English SC", "Kurale", "UnifrakturMaguntia", serif;
    font-size: 120px;
    text-align: center;
-   padding: 50px 0;
+   padding: 40px 0;
 }
 
 h2,
@@ -530,13 +530,18 @@ body {
 
 .actions-sm {
    display: none;
-   justify-content: space-around
+   justify-content: space-around;
+   /*   flex:1;*/
+   height: 100%;
+
 }
 
 .actions-sm button {
    width: auto;
+   height: 100%;
    margin: auto 10px;
    font-size: 20px;
+   min-height: 60px;
 }
 
 .close {
@@ -722,7 +727,7 @@ body {
 
 @media screen and (max-width:1140px) {
    h1 {
-      font-size: 70px;
+      font-size: 74px;
       padding: 30px 0;
    }
 
@@ -774,7 +779,21 @@ body {
 
 @media screen and (max-width:720px) {
    h1 {
+      font-size: 50px;
+      padding: 20px 0;
+   }
+}
+
+@media screen and (max-width:465px) {
+   h1 {
       font-size: 40px;
       padding: 20px 0;
+   }
+}
+
+@media screen and (max-width:400px) {
+   h1 {
+      font-size: 34px;
+      padding: 10px 0;
    }
 }
