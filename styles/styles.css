@@ -126,6 +126,79 @@ body {
    font-variant: small-caps;
 }
 
+.modal-title {
+   padding: 0;
+}
+
+.modal .alert:last-child {
+   margin: 0;
+}
+
+.overlay {
+   visibility: hidden;
+   display: none;
+}
+
+.overlay-bg {
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 60;
+   background: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-card .selected {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: block;
+   width: 500px;
+   z-index: 70;
+}
+
+.overlay-card .selected img {
+   width: 100%;
+}
+
+.overlay-card .frame {
+   position: relative;
+   display: none;
+}
+
+.overlay-card .frame .fa-close {
+   position: absolute;
+   top: 8px;
+   right: 10px;
+   color: black;
+   background: white;
+   border-radius: 50%;
+   border: 1px solid black;
+   font-size: 24px;
+   width: 33px;
+   height: 33px;
+   text-align: center;
+   cursor: pointer;
+   padding-left: 1px;
+   padding-top: 2px;
+}
+
+.overlay #loader {
+   display: none;
+   position: fixed;
+   top: 40%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 61;
+}
+
+
+
+/********************************************
+   ANIMATED DECK
+*********************************************/
 #deck {
    height: auto;
    position: relative;
@@ -184,6 +257,10 @@ body {
    transform: translateX(-60%) translateY(-10%) rotate(15deg);
 }
 
+
+/********************************************
+   REVEALED CARD
+*********************************************/
 .reveal {
    position: relative;
    margin-bottom: 50px;
@@ -200,14 +277,6 @@ body {
 
 .label-inv {
    visibility: collapse;
-}
-
-.modal-title {
-   padding: 0;
-}
-
-.modal .alert:last-child {
-   margin: 0;
 }
 
 
@@ -486,7 +555,7 @@ body {
    height: 270px;
    transition: .5s;
    clip-path: polygon(0% 14%, calc(100% - 250px) 14%, calc(100% - 200px) 0%, 100% 0%, 100% 100%, 0% 100%);
-   z-index: 100;
+   z-index: 50;
 }
 
 #expended.shift {
@@ -662,6 +731,14 @@ body {
       width: 80%;
       font-size: 30px;
       margin: 0 auto 30px;
+   }
+
+   .overlay {
+      visibility: visible;
+   }
+
+   .reveal {
+      display: none;
    }
 }
 

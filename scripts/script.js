@@ -7,12 +7,12 @@ $(document).ready(function () {
 
 
    // fade in contents when page is loaded
-   $('#wrapper').delay(1000).fadeIn(2000);
+   $('#wrapper').delay(1000).fadeIn(1000);
 
    // vanishes the selected card if one exists
    const hideCard = () => {
       if (drawn) {
-         $('.selected').fadeOut();
+         $('.selected').fadeOut('fast');
       }
    }
 
@@ -22,9 +22,10 @@ $(document).ready(function () {
 
       $('#confirm-draw-modal').modal('hide'); // hide the modal
       hideCard(); // fades away existing card
+      $('.overlay').delay(500).fadeIn();
 
       if (confirm === 'yes') {
-         if (chosen.length === list.length) {
+         if (chosen.length === list.length) { //show depleted if deck is empty
             setTimeout(function () {
                depleted();
             }, 500)
@@ -60,7 +61,7 @@ $(document).ready(function () {
       const title = list[num].title;
       const source = str1.concat(title.toLocaleLowerCase() + '.png');
 
-      $('#card-img').attr('src', source).attr('alt', title).css('display', 'block');
+      $('.card-img').attr('src', source).attr('alt', title).css('display', 'block');
 
       setTimeout(function () {
          $('.selected').fadeIn(3000) // length of time for card to fade in 
@@ -79,7 +80,7 @@ $(document).ready(function () {
 
    ////////////////////// DECK DEPLETED
    const depleted = () => {
-      $('#card-img').hide();
+      $('.card-img').hide();
       $('#card-title').text('Deck depleted');
 
       setTimeout(function () {
@@ -252,6 +253,10 @@ $(document).ready(function () {
 
    $('#exp-drawer-btn').on('click', function () {
       $('#expended').toggleClass('shift');
+   })
+
+   $('.overlay .fa-close').on('click', function () {
+      $('.overlay').fadeOut();
    })
 
 
