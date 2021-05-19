@@ -1,3 +1,6 @@
+// TITLE - DECK OF MANY THINGS PICKER
+// AUTHOR - Greg Hazelton
+
 $(document).ready(function () {
    let drawn = false
    let chosen = [];
