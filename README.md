@@ -20,4 +20,4 @@
   <li>Click "Reset" to shuffle all the cards back into the deck that have been established by the deck builder (this will also clear the expended cards and remove the currently presented card)</li>
 </ul>
 
-<a href="https://haze0028.github.io/deck-of-many-things/" target="_blank">Try it out!</a>
+[Try it out!](https://haze9greg.github.io/deck-of-many-things/)
